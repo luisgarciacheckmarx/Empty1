@@ -30,7 +30,7 @@ pipeline {
         		!**/*.stml, !**/*.ttml, !**/*.txn, !**/*.xhtm, !**/*.xhtml, !**/*.class, !**/*.iml, !Checkmarx/Reports/*.*,
 			jobStatusOnError: 'UNSTABLE',
         		!OSADependencies.json, !**/node_modules/**/*''', fullScanCycle: 10, groupId: '1', password: '{AQAAABAAAAAQQQTKlo9uDBg6wl7ocSOUHPeRfeWilX1xSLnCCBxsOj4=}', postScanActionId: 2, preset: '36', projectName: 'Empty1', sastEnabled: true, serverUrl: 'http://172.35.1.19', sourceEncoding: '6', useOwnServerCredentials: true, username: '', vulnerabilityThresholdResult: 'FAILURE', 
-			waitForResultsEnabled: false])
+			waitForResultsEnabled: true])
 		    
 		    
 	    }
