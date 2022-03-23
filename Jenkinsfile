@@ -15,7 +15,7 @@ pipeline {
 	stage('SAST scan') {
             steps {
             
-		    step([$class: 'CxScanBuilder', comment: 'hola', configAsCode: true, credentialsId: 'CxSAST94', customFields: '', excludeFolders: '', exclusionsSetting: 'global', failBuildOnNewResults: false, failBuildOnNewSeverity: 'HIGH', filterPattern: '''!**/_cvs/**/*, !**/.svn/**/*, !**/.hg/**/*, !**/.git/**/*, !**/.bzr/**/*,
+		    step([$class: 'CxScanBuilder', comment: 'hola perola', configAsCode: true, credentialsId: 'CxSAST94', customFields: '', excludeFolders: '', exclusionsSetting: 'global', failBuildOnNewResults: false, failBuildOnNewSeverity: 'HIGH', filterPattern: '''!**/_cvs/**/*, !**/.svn/**/*, !**/.hg/**/*, !**/.git/**/*, !**/.bzr/**/*,
         		!**/.gitgnore/**/*, !**/.gradle/**/*, !**/.checkstyle/**/*, !**/.classpath/**/*, !**/bin/**/*,
         		!**/obj/**/*, !**/backup/**/*, !**/.idea/**/*, !**/*.DS_Store, !**/*.ipr, !**/*.iws,
         		!**/*.bak, !**/*.tmp, !**/*.aac, !**/*.aif, !**/*.iff, !**/*.m3u, !**/*.mid, !**/*.mp3,
@@ -30,7 +30,7 @@ pipeline {
         		!**/*.stml, !**/*.ttml, !**/*.txn, !**/*.xhtm, !**/*.xhtml, !**/*.class, !**/*.iml, !Checkmarx/Reports/*.*,
 			jobStatusOnError: 'UNSTABLE',
         		!OSADependencies.json, !**/node_modules/**/*''', fullScanCycle: 10, groupId: '1', password: '{AQAAABAAAAAQQQTKlo9uDBg6wl7ocSOUHPeRfeWilX1xSLnCCBxsOj4=}', postScanActionId: 2, preset: '36', projectName: 'Empty1', sastEnabled: true, serverUrl: 'http://172.35.1.19', sourceEncoding: '6', useOwnServerCredentials: true, username: '', vulnerabilityThresholdResult: 'FAILURE', 
-			 waitForResultsEnabled: false])
+			waitForResultsEnabled: false])
 		    
 		    
 	    }
