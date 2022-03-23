@@ -52,7 +52,7 @@ pipeline {
 				sh 'cat ${WORKSPACE}/lgv.sh'
 				sh 'chmod +x ${WORKSPACE}/lgv.sh'
 				//sh '${WORKSPACE}/lgv.sh "ls pp -ProjectName \\\"CxServer/Empty1\\\" "'
-				sh ' ${WORKSPACE}/lgv.sh  ./runCxConsole.sh Scan -v -ProjectName \\\"CxServer/Empty1\\\" -CxServer http://172.35.1.19 -cxuser admin -cxpassword KsHPJ8JCD5otOLixmMov_ -LocationType folder -LocationPath ${WORKSPACE} -preset \\\"Checkmarx Default\\\" '
+				sh ' ${WORKSPACE}/lgv.sh  "./runCxConsole.sh Scan -v -ProjectName \\\"CxServer/Empty1\\\" -CxServer http://172.35.1.19 -cxuser admin -cxpassword KsHPJ8JCD5otOLixmMov_ -LocationType folder -LocationPath ${WORKSPACE} -preset \\\"Checkmarx Default\\\" "'
 
 				//sh 'if ./runCxConsole.sh Scan -v -ProjectName "CxServer/Empty1" -CxServer http://172.35.1.19 -cxuser admin -cxpassword KsHPJ8JCD5otOLixmMov_ -LocationType folder -LocationPath ${WORKSPACE} -preset "Checkmarx Default"; then echo EXITO; else exit 28; fi'
 				//sh 'echo hola perola ; ./runCxConsole.sh Scan -v -ProjectName "CxServer/Empty1" -CxServer http://172.35.1.19 -cxuser admin -cxpassword KsHPJ8JCD5otOLixmMov_ -LocationType folder -LocationPath ${WORKSPACE} -preset "Checkmarx Default"; KK=$?; echo $KK'
