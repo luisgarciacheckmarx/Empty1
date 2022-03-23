@@ -48,6 +48,9 @@ pipeline {
                         	//sh 'chmod +x ScaResolver'
                         	sh 'echo "Current directory: $(pwd)"'
                         	sh 'ls -latr $(pwd)'
+				
+				sh 'runCxConsole.cmd Scan -v -ProjectName "Empty1" -CxServer http://172.35.1.19 -cxuser admin -cxpassword 4g#Tj8H12 -LocationType folder -LocationPath ${WORKSPACE} -preset "Checkmarx Default"'
+				
 				//  withCredentials([usernamePassword(credentialsId: 'SCA', passwordVariable: 'pass', usernameVariable: 'user')]) { 
 				//	sh 'echo hola $user'
 				//  	sh './ScaResolver -a ps-team-emea -u luis.garciaviejo@checkmarx.com -p $pass -s ${WORKSPACE} --report-path ${WORKSPACE} --report-type Risk --report-extension Pdf,Json,Xml -n Pipeline_SCAResolver_SlaveUnix2 --bypass-exitcode'
