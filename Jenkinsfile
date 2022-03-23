@@ -49,7 +49,7 @@ pipeline {
                         	sh 'echo "Current directory: $(pwd)"'
                         	sh 'ls -latr $(pwd)'
 				
-				sh 'runCxConsole.cmd Scan -v -ProjectName "Empty1" -CxServer http://172.35.1.19 -cxuser admin -cxpassword 4g#Tj8H12 -LocationType folder -LocationPath ${WORKSPACE} -preset "Checkmarx Default"'
+				sh 'runCxConsole.sh Scan -v -ProjectName "Empty1" -CxServer http://172.35.1.19 -cxuser admin -cxpassword 4g#Tj8H12 -LocationType folder -LocationPath ${WORKSPACE} -preset "Checkmarx Default"'
 				
 				//  withCredentials([usernamePassword(credentialsId: 'SCA', passwordVariable: 'pass', usernameVariable: 'user')]) { 
 				//	sh 'echo hola $user'
