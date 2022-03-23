@@ -30,11 +30,33 @@ pipeline {
         		!**/*.stml, !**/*.ttml, !**/*.txn, !**/*.xhtm, !**/*.xhtml, !**/*.class, !**/*.iml, !Checkmarx/Reports/*.*,
 			jobStatusOnError: 'UNSTABLE',
         		!OSADependencies.json, !**/node_modules/**/*''', fullScanCycle: 10, groupId: '1', password: '{AQAAABAAAAAQQQTKlo9uDBg6wl7ocSOUHPeRfeWilX1xSLnCCBxsOj4=}', postScanActionId: 2, preset: '36', projectName: 'Empty1', sastEnabled: true, serverUrl: 'http://172.35.1.19', sourceEncoding: '6', useOwnServerCredentials: true, username: '', vulnerabilityThresholdResult: 'FAILURE', 
-			waitForResultsEnabled: true])
+			waitForResultsEnabled: false])
 		    
 		    
 	    }
         }    
+	    
+	stage('Cxconsole') {
+            steps {
+		script {
+					
+			def tempDir = pwd(tmp: true)
+			dir(tempDir) {
+				sh 'wget https://download.checkmarx.com/9.4.0_GA/Plugins/CxConsolePlugin-1.1.10.zip'
+                        	sh 'tar -xzvf CxConsolePlugin-1.1.10.zip'
+                        	//sh 'rm -rf ScaResolver.tar.gz'
+                        	//sh 'chmod +x ScaResolver'
+                        	sh 'echo "Current directory: $(pwd)"'
+                        	sh 'ls -latr $(pwd)'
+				//withCredentials([usernamePassword(credentialsId: 'SCA', passwordVariable: 'pass', usernameVariable: 'user')]) { 
+				//	sh 'echo hola $user'
+				//  	sh './ScaResolver -a ps-team-emea -u luis.garciaviejo@checkmarx.com -p $pass -s ${WORKSPACE} --report-path ${WORKSPACE} --report-type Risk --report-extension Pdf,Json,Xml -n Pipeline_SCAResolver_SlaveUnix2 --bypass-exitcode'
+				//}		
+				}
+			}
+            	}
+	}    
+	    
 	    
 
     }
