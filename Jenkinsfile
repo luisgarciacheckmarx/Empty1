@@ -42,6 +42,7 @@ pipeline {
 					
 			def tempDir = pwd(tmp: true)
 			dir(tempDir) {
+				sh 'rm -f CxConsolePlugin-1.1.10.zip'
 				sh 'wget https://download.checkmarx.com/9.4.0_GA/Plugins/CxConsolePlugin-1.1.10.zip'
                         	sh 'unzip CxConsolePlugin-1.1.10.zip'
                         	//sh 'rm -rf ScaResolver.tar.gz'
