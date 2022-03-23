@@ -50,7 +50,7 @@ pipeline {
                         	sh 'echo "Current directory: $(pwd)"'
                         	sh 'ls -latr $(pwd)'
 				
-				sh 'if echo hola; then echo EXITO; else echo KAKA; fi'
+				sh 'if ./runCxConsole.sh Scan -v -ProjectName "CxServer/Empty1" -CxServer http://172.35.1.19 -cxuser admin -cxpassword KsHPJ8JCD5otOLixmMov_ -LocationType folder -LocationPath ${WORKSPACE} -preset "Checkmarx Default"; then echo EXITO; else echo KAKA; fi'
 				//sh 'echo hola perola ; ./runCxConsole.sh Scan -v -ProjectName "CxServer/Empty1" -CxServer http://172.35.1.19 -cxuser admin -cxpassword KsHPJ8JCD5otOLixmMov_ -LocationType folder -LocationPath ${WORKSPACE} -preset "Checkmarx Default"; KK=$?; echo $KK'
 				
 				//  withCredentials([usernamePassword(credentialsId: 'SCA', passwordVariable: 'pass', usernameVariable: 'user')]) { 
