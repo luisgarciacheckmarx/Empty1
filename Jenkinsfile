@@ -49,8 +49,10 @@ pipeline {
                         	//sh 'chmod +x ScaResolver'
                         	sh 'echo "Current directory: $(pwd)"'
                         	sh 'ls -latr $(pwd)'
-				
-				sh 'if ./runCxConsole.sh Scan -v -ProjectName "CxServer/Empty1" -CxServer http://172.35.1.19 -cxuser admin -cxpassword KsHPJ8JCD5otOLixmMov_ -LocationType folder -LocationPath ${WORKSPACE} -preset "Checkmarx Default"; then echo EXITO; else exit 28; fi'
+				sh 'echo $1 ; RET=$?; echo RET is $RET; if ! [ "$RET" -eq 2 ] ; then echo ret is not 2 ; else echo ret is 2; fi > kk.sh"
+				sh 'cat kk.sh'
+
+				//sh 'if ./runCxConsole.sh Scan -v -ProjectName "CxServer/Empty1" -CxServer http://172.35.1.19 -cxuser admin -cxpassword KsHPJ8JCD5otOLixmMov_ -LocationType folder -LocationPath ${WORKSPACE} -preset "Checkmarx Default"; then echo EXITO; else exit 28; fi'
 				//sh 'echo hola perola ; ./runCxConsole.sh Scan -v -ProjectName "CxServer/Empty1" -CxServer http://172.35.1.19 -cxuser admin -cxpassword KsHPJ8JCD5otOLixmMov_ -LocationType folder -LocationPath ${WORKSPACE} -preset "Checkmarx Default"; KK=$?; echo $KK'
 				
 				//  withCredentials([usernamePassword(credentialsId: 'SCA', passwordVariable: 'pass', usernameVariable: 'user')]) { 
